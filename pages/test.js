@@ -2,7 +2,7 @@ import React from 'react';
 // import Anime from 'react-anime';
 
 import dynamic from 'next/dynamic';
-import styles from '../styles/Home.module.css';
+// import styles from '../styles/Home.module.css';
 
 const Anime = dynamic(() => import('react-anime'), { ssr: false });
 

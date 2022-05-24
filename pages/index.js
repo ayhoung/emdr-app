@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import {
-    ArrowCircleDownIcon, ArrowCircleUpIcon, PlayIcon, PauseIcon,
+    ArrowCircleDownIcon, ArrowCircleUpIcon,
 } from '@heroicons/react/outline';
 import dynamic from 'next/dynamic';
 import styles from '../styles/Home.module.css';
@@ -10,7 +10,7 @@ const Anime = dynamic(() => import('react-anime'), { ssr: false });
 
 export default function Home() {
     const refer = React.createRef();
-    const [isPlaying, setIsPlaying] = useState(true);
+    const [isPlaying] = useState(true);
     const [seconds, setSeconds] = useState(0.7);
 
     // useEffect(() => {
