@@ -29,6 +29,5 @@
 		"import/resolver": {
 			"typescript": {}
 		}
-	},
-	"extends": "next/core-web-vitals"
+	}
 }
