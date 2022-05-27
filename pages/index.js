@@ -1,16 +1,16 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import {
     ArrowCircleDownIcon,
     ArrowCircleUpIcon,
-    PlayIcon,
-    PauseIcon,
+    // PlayIcon,
+    // PauseIcon,
 } from '@heroicons/react/outline';
 import anime from 'animejs';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
-    const [isPlaying, setIsPlaying] = useState(true);
+    // const [isPlaying, setIsPlaying] = useState(true);
     const [seconds, setSeconds] = useState(1.0);
     const animation = React.createRef();
 
