@@ -1,17 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import {
-    ArrowCircleDownIcon, ArrowCircleUpIcon,
+    ArrowCircleDownIcon,
+    ArrowCircleUpIcon,
+    PlayIcon,
+    PauseIcon,
 } from '@heroicons/react/outline';
-import dynamic from 'next/dynamic';
+// import anime from 'animejs';
 import styles from '../styles/Home.module.css';
-
-const Anime = dynamic(() => import('react-anime'), { ssr: false });
 
 export default function Home() {
     const refer = React.createRef();
-    const [isPlaying] = useState(true);
+    const [isPlaying, setIsPlaying] = useState(true);
     const [seconds, setSeconds] = useState(0.7);
+
+    // useEffect(() => {
+    //     anime({
+    //         targets: '.hello',
+    //         translateX: 250,
+    //         rotate: '1turn',
+    //         backgroundColor: '#FFF',
+    //         duration: 800,
+    //     });
+    // }, []);
 
     // useEffect(() => {
     //     if (refer) {
@@ -33,7 +44,8 @@ export default function Home() {
             <div className="w-screen h-screen bg-slate-500 relative overflow-hidden">
                 <div className="relative select-none"><h1 className="text-white mt-5 ml-5 text-3xl">EMDR Virtual Lightbar</h1></div>
                 <div className={styles.animationWrapper}>
-                    <Anime
+                    <div className="hello"></div>
+                    {/* <Anime
                         easing="cubicBezier(0.990, 0.010, 0.020, 1.000)"
                         loop={isPlaying}
                         ref={refer}
@@ -41,7 +53,7 @@ export default function Home() {
                         direction="alternate"
                         translateX={['1%', '96%']}>
                         <div className={styles.red} />
-                    </Anime>
+                    </Anime> */}
                 </div>
                 <div className="absolute bottom-10 flex justify-center w-full select-none text-white">
                     <p className="text-white select-none">{seconds.toFixed(2)} seconds</p>
