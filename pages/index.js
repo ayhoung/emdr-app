@@ -3,14 +3,15 @@ import Head from 'next/head';
 import {
     ArrowCircleDownIcon,
     ArrowCircleUpIcon,
-    // PlayIcon,
-    // PauseIcon,
+    PlayIcon,
+    PauseIcon,
 } from '@heroicons/react/outline';
 import anime from 'animejs';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
-    // const [isPlaying, setIsPlaying] = useState(true);
+    const [bufferSeconds, setBufferSeconds] = useState(1.0);
+    const [isPlaying, setIsPlaying] = useState(true);
     const [seconds, setSeconds] = useState(1.0);
     const animation = React.createRef();
 
@@ -46,12 +47,13 @@ export default function Home() {
                         className="h-10 w-10 hover:cursor-pointer hover:opacity-75 m-2 select-none"
                         // opacity={seconds === 1 ? '0.0' : '1.0'}
                         onClick={() => setSeconds(seconds - 0.05)} color="white"/>
-                    {/* {
+                    {
                         !isPlaying && <PlayIcon
                             className="h-10 w-10 hover:cursor-pointer hover:opacity-75 m-2 select-none"
                             onClick={() => {
-                                animation.current.play();
+                                // animation.current.play();
                                 setIsPlaying(true);
+                                setSeconds(bufferSeconds);
                             }}
                             color="white"/>
                     }
@@ -59,11 +61,13 @@ export default function Home() {
                         isPlaying && <PauseIcon
                             className="h-10 w-10 hover:cursor-pointer hover:opacity-75 m-2 select-none"
                             onClick={() => {
-                                animation.current.pause();
+                                // animation.current.pause();
                                 setIsPlaying(false);
+                                setBufferSeconds(seconds);
+                                setSeconds(0);
                             }}
                             color="white"/>
-                    } */}
+                    }
                     <ArrowCircleDownIcon
                         className="h-10 w-10 hover:cursor-pointer hover:opacity-75 m-2 select-none"
                         // opacity={seconds === 10 ? '0.0' : '1.0' }
